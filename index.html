@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Lobster|Pacifico|Cairo|IBM Plex Sans Arabic&effect=fire-animation|neon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgb(238, 245, 255);
+            color: rgb(22, 21, 21);
+            font-family: 'Pacifico', cursive;
+        }
+
+        button {
+            background-color: rgb(22, 72, 99);
+            color: white;
+            border: solid white;
+            width: 200px;
+            height: 90px;
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin: 10px 30px;
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+        }
+
+        .userData {
+            background-color: rgb(22, 72, 99);
+            color: white;
+            max-width: 400px;
+            margin: auto;
+            border-radius: 20px;
+            font-size: 25px;
+            border: solid;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        #heading {
+            color: ;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1 id="Lobster" class="font-effect-neon">Even or Odd game🤫</h1>
+    </center>
+    <div class="userData">
+        <p> Attempts</p>
+        <p id="attempt">0</p>
+    </div>
+    <div class="userData">
+        <p>Score</p>
+        <p id="score">0</p>
+    </div>
+    <center>
+        <h1 id="Lobster" class="font-effect-neon">I think of a num ,do you think it is odd or even?</h1>
+    </center>
+
+    <div class="buttons">
+        <button onclick=guess('odd')>Odd</button>
+        <button onclick=guess('even')>Even</button>
+    </div>
+
+    <script>
+        let Attempts = 0;
+        let Score = 0;
+
+        function guess(userGuess) {
+            Attempts++;
+            document.getElementById("attempt").innerHTML = Attempts;
+            //Generating Random Number
+            const randomNumber = Math.floor(Math.random() * 100) + 1;
+            const correctAnswer = (randomNumber % 2 == 0) ? 'even' : 'odd';
+            if (userGuess == correctAnswer) {
+                Score++;
+                document.getElementById("score").innerHTML = Score
+                document.getElementById('heading').innerText = `Correct! The number was ${randomNumber} `;
+            }
+            else {
+                document.getElementById('heading').innerText = `Wrong! The number was ${randomNumber} `;
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
